@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/icon_cryptocurrencies_card"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/name_cryptocurrencies_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cryptocurrencies"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/icon_cryptocurrencies_card"
+            app:layout_constraintTop_toTopOf="@id/icon_cryptocurrencies_card"
+            app:layout_constraintLeft_toRightOf="@id/icon_cryptocurrencies_card"
+            />
+
+        <LinearLayout
+            android:id="@+id/linear_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/linear_two"
+            android:layout_marginRight="20dp"
+            >
+            <TextView
+                android:id="@+id/symbol_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="77,21"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp"
+                />
+
+            <TextView
+                android:id="@+id/plus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/price_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="77,21"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout"
+            app:layout_constraintRight_toRightOf="@id/linear_layout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+            <TextView
+                android:id="@+id/price_change_one_H_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+999%"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
