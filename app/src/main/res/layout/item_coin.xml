@@ -6,12 +6,15 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="4dp"
+        >
 
         <ImageView
-            android:id="@+id/icon_cryptocurrencies_card"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:id="@+id/icon_item"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="4dp"
             android:src="@drawable/ic_launcher_foreground"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -19,15 +22,16 @@
             />
 
         <TextView
-            android:id="@+id/name_cryptocurrencies_card"
+            android:id="@+id/name_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="cryptocurrencies"
             android:textStyle="bold"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@id/icon_cryptocurrencies_card"
-            app:layout_constraintTop_toTopOf="@id/icon_cryptocurrencies_card"
-            app:layout_constraintLeft_toRightOf="@id/icon_cryptocurrencies_card"
+            android:layout_marginLeft="4dp"
+            app:layout_constraintBottom_toBottomOf="@id/icon_item"
+            app:layout_constraintTop_toTopOf="@id/icon_item"
+            app:layout_constraintLeft_toRightOf="@id/icon_item"
             />
 
         <LinearLayout
@@ -38,15 +42,15 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/linear_two"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="10dp"
             >
             <TextView
-                android:id="@+id/symbol_card"
+                android:id="@+id/symbol_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="77,21"
                 android:textStyle="bold"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="4dp"
                 />
 
             <TextView
@@ -55,10 +59,10 @@
                 android:layout_height="wrap_content"
                 android:text="+"
                 android:textStyle="bold"
-                android:layout_marginEnd="8dp" />
+                android:layout_marginEnd="4dp" />
 
             <TextView
-                android:id="@+id/price_card"
+                android:id="@+id/price_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="77,21"
@@ -76,7 +80,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             >
             <TextView
-                android:id="@+id/price_change_one_H_card"
+                android:id="@+id/price_one_h_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="+999%"
