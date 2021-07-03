@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import it.kimoterru.manycoins.R
 import it.kimoterru.manycoins.network.models.Coin
+import java.math.RoundingMode
 
 class CoinAdapter(
     private val data: List<Coin>
@@ -31,7 +32,8 @@ class CoinAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = data[position]
         holder.name.text = item.name
-        holder.price.text = item.price.toString()
+        holder.price.text =
+            item.price.toBigDecimal().setScale(3, RoundingMode.UP).toDouble().toString()
         holder.symbol.text = item.symbol
         holder.priceChangeCneH.text = item.priceChange1H.toString()
         Glide.with(holder.icon).load(item.icon).into(holder.icon)
