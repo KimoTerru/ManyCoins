@@ -17,7 +17,7 @@ class MyViewModel : ViewModel() {
         coinsLiveData.postValue(Resource.loading())
         viewModelScope.launch {
             try {
-                val result = NetworkHelper.getService().getCoinsWithGlobalAvgPrices(0, 200, "USD")
+                val result = NetworkHelper.getService().getCoinsWithGlobalAvgPrices(0, 20, "USD")
                 coinsLiveData.postValue(Resource.success(result))
             } catch (e: Exception) {
                 e.printStackTrace()
