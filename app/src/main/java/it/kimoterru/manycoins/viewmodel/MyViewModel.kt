@@ -1,22 +1,20 @@
 package it.kimoterru.manycoins.viewmodel
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import it.kimoterru.manycoins.network.NetworkHelper
 import it.kimoterru.manycoins.network.Resource
-import it.kimoterru.manycoins.network.models.CoinResponse
+import it.kimoterru.manycoins.models.CoinResponse
 import kotlinx.coroutines.launch
 
 class MyViewModel : ViewModel() {
 
     var coinsLiveData = MutableLiveData<Resource<CoinResponse>>()
 
-    fun getCoinsMain() {
+    fun getCoinsMainOnline() {
         coinsLiveData.postValue(Resource.loading())
         viewModelScope.launch {
             try {
-                val result = NetworkHelper.getService().getCoinsWithGlobalAvgPrices(0, 20, "USD")
+                val result = NetworkHelper.getService().getCoinsWithGlobalAvgPrices(0, 60, "USD")
                 coinsLiveData.postValue(Resource.success(result))
             } catch (e: Exception) {
                 e.printStackTrace()

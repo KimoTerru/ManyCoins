@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import it.kimoterru.manycoins.R
-import it.kimoterru.manycoins.network.models.Coin
+import it.kimoterru.manycoins.models.Coin
 import java.math.RoundingMode
 
 class CoinAdapter(

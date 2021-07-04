@@ -1,16 +1,18 @@
 package it.kimoterru.manycoins
 
 import android.os.Bundle
+import android.view.Menu
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import it.kimoterru.manycoins.adapters.CoinAdapter
 import it.kimoterru.manycoins.databinding.ActivityMainBinding
+import it.kimoterru.manycoins.models.CoinResponse
 import it.kimoterru.manycoins.network.Status
-import it.kimoterru.manycoins.network.models.CoinResponse
 import it.kimoterru.manycoins.viewmodel.MyViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -31,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        viewModel!!.getCoinsMain()
+        viewModel!!.getCoinsMainOnline()
     }
 
     private fun initViews() {
@@ -62,5 +64,21 @@ class MainActivity : AppCompatActivity() {
         if (response?.coins.isNullOrEmpty()) {
             binding.cons.isVisible = false
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        val menuItem = menu!!.findItem(R.id.action_search)
+        val searchView = menuItem.actionView as SearchView
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                return false
+            }
+        })
+        return super.onCreateOptionsMenu(menu)
     }
 }
