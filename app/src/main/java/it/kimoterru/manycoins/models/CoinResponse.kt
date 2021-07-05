@@ -1,4 +1,4 @@
-package it.kimoterru.manycoins.network.models
+package it.kimoterru.manycoins.models
 
 import com.google.gson.annotations.SerializedName
 

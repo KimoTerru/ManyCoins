@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import it.kimoterru.manycoins.adapters.CoinAdapter
 import it.kimoterru.manycoins.databinding.ActivityMainBinding
-import it.kimoterru.manycoins.models.CoinResponse
-import it.kimoterru.manycoins.network.Status
+import it.kimoterru.manycoins.models.Coin
+import it.kimoterru.manycoins.util.Status
 import it.kimoterru.manycoins.viewmodel.MyViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        viewModel!!.getCoinsMainOnline()
+        viewModel!!.getCoinsMain()
     }
 
     private fun initViews() {
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 Status.SUCCESS -> {
                     binding.progressBar.isVisible = false
-                    displayData(it.data)
+                    displayData(it.data!!)
                 }
                 Status.ERROR -> {
                     binding.progressBar.isVisible = false
@@ -58,12 +58,8 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun displayData(response: CoinResponse?) {
-        binding.recyclerMain.adapter = CoinAdapter(response?.coins ?: listOf())
-
-        if (response?.coins.isNullOrEmpty()) {
-            binding.cons.isVisible = false
-        }
+    private fun displayData(response: List<Coin>) {
+        binding.recyclerMain.adapter = CoinAdapter(response)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

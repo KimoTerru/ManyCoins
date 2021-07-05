@@ -1,4 +1,4 @@
-package it.kimoterru.manycoins.network
+package it.kimoterru.manycoins.util
 
 data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
     companion object {
